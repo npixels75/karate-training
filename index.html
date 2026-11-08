@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#121216">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Kumite">
+  <title>Kumite Trainer</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Accueil -->
+  <section id="home" class="screen active">
+    <header class="top">
+      <h1>Kumite Trainer</h1>
+      <p class="sub">Adversaire virtuel · Shotokan</p>
+    </header>
+    <div id="program-list" class="cards"></div>
+    <button id="btn-new" class="btn secondary wide">+ Nouveau programme</button>
+    <p id="slots-info" class="hint"></p>
+    <p class="safety">⚠️ Espace dégagé devant l'écran, appareil bien fixé, échauffement avant de commencer.</p>
+  </section>
+
+  <!-- Éditeur de programme -->
+  <section id="editor" class="screen">
+    <header class="top row">
+      <button class="btn ghost" data-action="back">← Retour</button>
+      <h2 id="editor-title">Programme</h2>
+    </header>
+    <form id="form" autocomplete="off">
+      <label class="field">
+        <span>Nom</span>
+        <input name="name" maxlength="40" placeholder="Ex. Kumite du mardi">
+      </label>
+
+      <fieldset>
+        <legend>Rythme</legend>
+        <div class="seg" data-name="mode">
+          <button type="button" value="regular">Régulier</button>
+          <button type="button" value="random">Aléatoire</button>
+        </div>
+        <div class="grid2" data-show="mode=regular">
+          <label class="field"><span>Intervalle (s)</span><input name="interval" type="number" min="1" max="10" step="0.5"></label>
+        </div>
+        <div class="grid2" data-show="mode=random">
+          <label class="field"><span>Min (s)</span><input name="intervalMin" type="number" min="0.5" max="10" step="0.5"></label>
+          <label class="field"><span>Max (s)</span><input name="intervalMax" type="number" min="0.5" max="10" step="0.5"></label>
+        </div>
+        <label class="field">
+          <span>Durée d'affichage : <output data-for="display"></output> s <small>(plus court = plus dur)</small></span>
+          <input name="display" type="range" min="0.3" max="3" step="0.1">
+        </label>
+        <p class="warn" id="rhythm-warn" hidden></p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Rounds</legend>
+        <div class="grid3">
+          <label class="field"><span>Nombre</span><input name="rounds" type="number" min="1" max="12" step="1"></label>
+          <label class="field"><span>Durée (s)</span><input name="roundDuration" type="number" min="15" max="600" step="15"></label>
+          <label class="field"><span>Repos (s)</span><input name="rest" type="number" min="0" max="300" step="5"></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Attaques</legend>
+        <div id="attack-picker"></div>
+        <div class="sublabel">Niveaux</div>
+        <div class="chips" id="level-picker"></div>
+        <div class="sublabel">Côté de l'adversaire</div>
+        <div class="seg" data-name="side">
+          <button type="button" value="droite">Droite</button>
+          <button type="button" value="gauche">Gauche</button>
+          <button type="button" value="both">Les deux</button>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Sons et affichage</legend>
+        <div class="seg" data-name="sound">
+          <button type="button" value="signals">Signaux</button>
+          <button type="button" value="all">+ bip attaque</button>
+          <button type="button" value="off">Muet</button>
+        </div>
+        <label class="check"><input type="checkbox" name="showName"> Afficher le nom de l'attaque</label>
+      </fieldset>
+
+      <p class="warn" id="form-error" hidden></p>
+      <div class="actions">
+        <button type="button" class="btn primary" data-action="save">Enregistrer</button>
+        <button type="button" class="btn secondary" data-action="try">Démarrer sans enregistrer</button>
+        <button type="button" class="btn danger" data-action="delete">Supprimer</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Séance -->
+  <section id="session" class="screen">
+    <div class="hud">
+      <span id="hud-round"></span>
+      <span id="hud-time"></span>
+    </div>
+    <div id="stage" class="stage">
+      <div id="media" class="media"></div>
+      <div id="attack-name" class="attack-name"></div>
+      <div id="overlay" class="overlay"></div>
+    </div>
+    <div class="session-controls">
+      <button class="btn round" id="btn-pause" aria-label="Pause">❚❚</button>
+      <button class="btn round" id="btn-stop" aria-label="Arrêter">■</button>
+    </div>
+  </section>
+
+  <!-- Résumé -->
+  <section id="summary" class="screen">
+    <header class="top"><h2>Séance terminée</h2><p class="sub" id="sum-title"></p></header>
+    <div class="stats" id="sum-stats"></div>
+    <div id="sum-breakdown"></div>
+    <div class="actions">
+      <button class="btn primary" data-action="replay">Rejouer la même séance</button>
+      <button class="btn secondary" data-action="again">Nouvelle séance</button>
+      <button class="btn ghost" data-action="home">Accueil</button>
+    </div>
+  </section>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

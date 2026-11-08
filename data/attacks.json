@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "levels": {
+    "jodan": "Jodan",
+    "chudan": "Chudan",
+    "gedan": "Gedan"
+  },
+  "categories": {
+    "poing": "Poings",
+    "pied": "Pieds",
+    "saisie": "Saisies"
+  },
+  "guard": {
+    "type": "svg",
+    "src": "assets/attacks/guard.svg"
+  },
+  "attacks": [
+    {
+      "id": "oi-zuki",
+      "nameJp": "Oi-zuki",
+      "nameFr": "Coup de poing en avançant",
+      "category": "poing",
+      "levels": [
+        "chudan",
+        "jodan"
+      ],
+      "media": {
+        "chudan": {
+          "type": "svg",
+          "src": "assets/attacks/oi-zuki-chudan.svg"
+        },
+        "jodan": {
+          "type": "svg",
+          "src": "assets/attacks/oi-zuki-jodan.svg"
+        }
+      }
+    },
+    {
+      "id": "gyaku-zuki",
+      "nameJp": "Gyaku-zuki",
+      "nameFr": "Coup de poing opposé",
+      "category": "poing",
+      "levels": [
+        "chudan",
+        "jodan"
+      ],
+      "media": {
+        "chudan": {
+          "type": "svg",
+          "src": "assets/attacks/gyaku-zuki-chudan.svg"
+        },
+        "jodan": {
+          "type": "svg",
+          "src": "assets/attacks/gyaku-zuki-jodan.svg"
+        }
+      }
+    },
+    {
+      "id": "kizami-zuki",
+      "nameJp": "Kizami-zuki",
+      "nameFr": "Coup de poing du bras avant",
+      "category": "poing",
+      "levels": [
+        "chudan",
+        "jodan"
+      ],
+      "media": {
+        "chudan": {
+          "type": "svg",
+          "src": "assets/attacks/kizami-zuki-chudan.svg"
+        },
+        "jodan": {
+          "type": "svg",
+          "src": "assets/attacks/kizami-zuki-jodan.svg"
+        }
+      }
+    },
+    {
+      "id": "uraken-uchi",
+      "nameJp": "Uraken-uchi",
+      "nameFr": "Revers du poing",
+      "category": "poing",
+      "levels": [
+        "jodan"
+      ],
+      "media": {
+        "jodan": {
+          "type": "svg",
+          "src": "assets/attacks/uraken-uchi-jodan.svg"
+        }
+      }
+    },
+    {
+      "id": "mae-geri",
+      "nameJp": "Mae-geri",
+      "nameFr": "Coup de pied de face",
+      "category": "pied",
+      "levels": [
+        "chudan",
+        "jodan",
+        "gedan"
+      ],
+      "media": {
+        "chudan": {
+          "type": "svg",
+          "src": "assets/attacks/mae-geri-chudan.svg"
+        },
+        "jodan": {
+          "type": "svg",
+          "src": "assets/attacks/mae-geri-jodan.svg"
+        },
+        "gedan": {
+          "type": "svg",
+          "src": "assets/attacks/mae-geri-gedan.svg"
+        }
+      }
+    },
+    {
+      "id": "mawashi-geri",
+      "nameJp": "Mawashi-geri",
+      "nameFr": "Coup de pied circulaire",
+      "category": "pied",
+      "levels": [
+        "chudan",
+        "jodan"
+      ],
+      "media": {
+        "chudan": {
+          "type": "svg",
+          "src": "assets/attacks/mawashi-geri-chudan.svg"
+        },
+        "jodan": {
+          "type": "svg",
+          "src": "assets/attacks/mawashi-geri-jodan.svg"
+        }
+      }
+    },
+    {
+      "id": "yoko-geri-kekomi",
+      "nameJp": "Yoko-geri kekomi",
+      "nameFr": "Coup de pied latéral pénétrant",
+      "category": "pied",
+      "levels": [
+        "chudan",
+        "jodan"
+      ],
+      "media": {
+        "chudan": {
+          "type": "svg",
+          "src": "assets/attacks/yoko-geri-kekomi-chudan.svg"
+        },
+        "jodan": {
+          "type": "svg",
+          "src": "assets/attacks/yoko-geri-kekomi-jodan.svg"
+        }
+      }
+    },
+    {
+      "id": "ushiro-geri",
+      "nameJp": "Ushiro-geri",
+      "nameFr": "Coup de pied arrière",
+      "category": "pied",
+      "levels": [
+        "chudan"
+      ],
+      "media": {
+        "chudan": {
+          "type": "svg",
+          "src": "assets/attacks/ushiro-geri-chudan.svg"
+        }
+      }
+    },
+    {
+      "id": "ura-mawashi-geri",
+      "nameJp": "Ura-mawashi-geri",
+      "nameFr": "Coup de pied circulaire inversé",
+      "category": "pied",
+      "levels": [
+        "jodan"
+      ],
+      "media": {
+        "jodan": {
+          "type": "svg",
+          "src": "assets/attacks/ura-mawashi-geri-jodan.svg"
+        }
+      }
+    },
+    {
+      "id": "eri-tori",
+      "nameJp": "Eri-tori",
+      "nameFr": "Saisie du col",
+      "category": "saisie",
+      "levels": [
+        "chudan"
+      ],
+      "media": {
+        "chudan": {
+          "type": "svg",
+          "src": "assets/attacks/eri-tori-chudan.svg"
+        }
+      }
+    }
+  ]
+}
